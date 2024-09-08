@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NLS</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            let chatForm;
+            let chatContainer;
+            let chatInput;
+
+            let messages = [{ role: 'assistant', content: 'Hello! How can I help you today?' }]
+
+            async function handleSubmit(event) {
+                event.preventDefault();
+                const question = chatInput.value;
+                messages.push({ role: 'user', content: question });
+                onMessagesChange();
+                chatInput.value = '';
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ question }),
+                });
+                const data = await response.json();
+                messages.push({ role: 'assistant', content: data.response });
+                onMessagesChange();
+            }
+
+            function onMessagesChange() {
+                let messageElements = []
+                for (let message of messages) {
+                    const messageElement = document.createElement('div');
+                    if (message.role === 'user') {
+                        messageElement.classList.add('bg-blue-500', 'text-white', 'p-2', 'rounded-md', 'self-end');
+                    } else {
+                        messageElement.classList.add('bg-gray-200', 'p-2', 'rounded-md', 'self-start');
+                    }
+                    messageElement.textContent = message.content;
+                    messageElements.push(messageElement);
+                }
+                chatContainer.replaceChildren(...messageElements);
+            }
+
+            window.onload = function() {
+                chatForm = document.querySelector('form[id="chat-form"]');
+                chatForm.addEventListener('submit', handleSubmit);
+                chatContainer = document.getElementById('chat-container');
+                chatInput = document.getElementById('chat-input');
+                onMessagesChange();
+            }
+        </script>
+    </head>
+    <body>
+        <main class="h-screen flex flex-col items-center justify-center max-w-screen-md mx-auto py-12 gap-4">
+            <h1 class="text-4xl font-bold">NLS</h1>
+            <div id="chat-container" class="flex-1 min-h-0 flex flex-col gap-2 border border-gray-300 rounded-md p-4 overflow-y-auto w-full"></div>
+            <form id="chat-form" class="flex gap-2 w-full">
+                <input id="chat-input" type="text" name="question" placeholder="Enter your question..." class="w-full p-2 border border-gray-300 rounded-md">
+                <button type="submit" class="bg-blue-500 text-white p-2 rounded-md">Send</button>
+            </form>
+        </main>
+    </body>
+</html>

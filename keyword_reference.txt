@@ -1,0 +1,853 @@
+English (US) keyword reference
+
+You can only use one set of keywords at a time. If you set your locale to English, you can only use English keywords. You can't also use keywords in any other language.
+
+# General Keywords
+
+Note: When using the top or bottom keywords without specifying a number (n), the number defaults to 10.
+
+1. top n
+Generates the top n items from a sorted result. If your search has more than 1 measure, ThoughtSpot generates the top n items from the first measure in the search.
+Examples:
+- top 10 [sales rep] [revenue]
+- top [sales rep] by count [sales] for average [revenue] > 10000
+- top [sales rep] average [revenue] for each [region]
+
+2. top n measure1 by attribute|measure2
+Calculates top n items, then sorts the top items by another measure or attribute.
+Contrast with top n (swaps the order of operations).
+Examples:
+- top 10 [sales rep] [revenue] by [profit margin]
+
+3. top n ... ranked by
+Ranks the top n items by a specified measure. The ranked by keyword only works in conjunction with the top keyword. If your search has more than 1 measure, ThoughtSpot generates the top n items from the first measure in the search.
+Examples:
+- top 10 [sales rep] [revenue] [sales] ranked by [sales]
+- top [customer] [revenue] generated [# of ads clicked] ranked by [# of ads clicked]
+
+4. bottom n
+Generates the bottom n items from a sorted result.
+Examples:
+- bottom 25 [customer] by [revenue] for each [sales rep]
+- bottom [revenue] average
+- bottom [revenue] by [state]
+- [customer] by [revenue] for each [sales rep] bottom
+
+5. sort by
+Sorts the result set by an attribute or measure.
+Examples:
+- [revenue] by [customer] sort by [region] sort by [state]
+
+6. sort by ... ascending
+Sorts the result set by a measure, in order from the smallest to the largest.
+Example:
+- [revenue] by [state] sort by average [revenue] ascending
+
+7. sort by ... descending
+Sorts the result set by a measure, in order from the largest to the smallest.
+Examples:
+- [revenue] by [state] sort by average [revenue] descending
+
+8. by <measure>
+Treats the measure as an attribute and groups the result set by it.
+Examples:
+- [cost] by [revenue]
+- [product] by [quantity purchased]
+
+# Date Keywords
+
+The last keyword returns the last n full periods and does not include the current period. 
+For example, last 6 hours returns the last 6 full hours and does not include the current hour. 
+To include the current period, add this <period>. For example, last 6 hours this hour.
+
+1. after
+Example:
+- [order date] after '10/31/2014'
+
+2. April
+Example:
+- [order date] = 'April'
+
+3. August
+Example:
+- [order date] = 'August'
+
+4. before
+Example:
+- [order date] before '03/01/2014'
+
+5. between ... and ...
+Example:
+- [order date] between '01/30/2012' and '01/30/2014'
+
+6. calendar
+Example:
+- [sales] [transaction date] calendar
+
+7. daily
+Example:
+- [shipments] by [region] daily
+
+8. daily year-over-year
+Example:
+- growth of [revenue] by [order date] daily year-over-year
+
+9. day
+Example:
+- count [monday] [restaurant]
+
+10. day of month
+Example:
+- [sales] day of month by [month]
+
+11. day of quarter
+Example:
+- [deals] day of quarter by [year]
+
+12. day of week
+Examples:
+- [revenue] by day of week last 6 months
+- count [shipments] [Monday]
+
+13. day of year
+Example:
+- [ad clicks] day of year by year
+
+14. December
+Example:
+- [order date] = 'December'
+
+15. February
+Example:
+- [order date] = 'February'
+
+16. Friday
+Example:
+- [order date] = 'Friday'
+
+17. growth of ... by ...
+Example:
+- growth of [sales] by [order date]
+
+18. growth of ... by ... daily
+Example:
+- growth of [sales] by [order date] daily
+
+19. growth of ... by ... monthly
+Example:
+- growth of [sales] by [date shipped] monthly [sales] > 24000
+
+20. growth of ... by ... quarterly
+Example:
+- growth of [sales] by [date shipped] quarterly
+
+21. growth of ... by ... weekly
+Example:
+- growth of [sales] by [receipt date] weekly for 'pro-ski2000'
+
+22. growth of ... by ... yearly
+Example:
+- growth of [sales] by [date closed] yearly
+
+23. hourly
+Example:
+- [visitors] by [page name] hourly
+
+24. January
+Example:
+- [order date] = 'January'
+
+25. July
+Example:
+- [order date] = 'July'
+
+26. June
+Example:
+- [order date] = 'June'
+
+27. last day by
+Example:
+- [customers] last day by [referrer]
+
+28. last month
+Example:
+- [customers] last month by [store]
+
+29. last month by
+Example:
+- [customers] last month by [day]
+
+30. last n days
+Example:
+- [visitors] last 7 days
+
+31. last n days for each month
+Example:
+- [sales] last 2 days for each month
+
+32. last n days for each quarter
+Example:
+- [revenue] last 15 days for each quarter
+
+33. last n days for each week
+Example:
+- [total sold] last 2 days for each week
+
+34. last n days for each year
+Example:
+- [revenue] last 300 days for each year
+
+35. last n hours for each day
+Example:
+- [sales] last 2 hours for each day
+
+36. last n months
+Example:
+- [visitors] last 10 months by day
+
+37. last n months for each quarter
+Example:
+- [cost] last 2 months for each quarter
+
+38. last n months for each year
+Example:
+- last 8 months for each year
+
+39. last n quarters
+Example:
+- [visitors] last 2 quarters by month by [campaign]
+
+40. last n quarters for each year
+Example:
+- last 2 quarters for each year
+
+41. last n weeks
+Example:
+- [visitors] last 10 weeks by day
+
+42. last n weeks for each month
+Example:
+- [sales] last 3 weeks for each month
+
+43. last n weeks for each quarter
+Example:
+- last 2 weeks for each quarter
+
+44. last n weeks for each year
+Example:
+- last 3 weeks for each year
+
+45. last n years
+Example:
+- [visitors] last 5 years by [revenue] for sum [revenue] > 5000
+
+46. last quarter
+Example:
+- [customers] last quarter [sale] > 300
+
+47. last week
+Example:
+- [customers] last week by [store]
+
+48. last year
+Example:
+- top 10 [customers] last year by [sale] by [store] for [region] = 'west'
+
+49. March
+Example:
+- [order date] = 'March'
+
+50. May
+Example:
+- [order date] = 'May'
+
+51. Monday
+Example:
+- [order date] = 'Monday'
+
+52. month
+Examples:
+- [revenue] by [month] last year
+- [commission] [order date] = 'January'
+
+53. month to date
+Example:
+- [sales] by [product] month to date [sales] > 2400
+
+54. month year
+Example:
+- [commission] by [sales rep] [order date] = 'February 2014'
+
+55. monthly
+Example:
+- [commission] > 10000 monthly
+
+56. monthly year-over-year
+Example:
+- growth of [revenue] by [receipt date] monthly year-over-year
+
+57. n days ago
+Example:
+- [sales] 2 days ago
+
+58. n months
+Example:
+- [visitors] last 6 months for [homepage visits] > 30 by [month]
+
+59. n months ago
+Example:
+- [sales] 2 months ago by [region]
+
+60. n quarters
+Example:
+- [sales] [last | next] 4 quarters
+
+61. n quarters ago
+Example:
+- [sales] 4 quarters ago by [product name] contains 'deluxe'
+
+62. n weeks
+Example:
+- [sales] [last | next] 4 weeks
+
+63. n weeks ago
+Example:
+- [sales] 4 weeks ago by [store]
+
+64. n years
+Example:
+- [opportunities] next 5 years by [revenue]
+
+65. n years ago
+Example:
+- [sales] 5 years ago by [store] for [region] = 'west'
+
+66. next day
+Example:
+- [shipments] next day by [order]
+
+67. next month
+Example:
+- [appointments] next month by day
+
+68. next n days
+Example:
+- [shipments] next 7 days
+
+69. next n days for each month
+Example:
+- [sales] next 2 days for each month
+
+70. next n days for each quarter
+Example:
+- [revenue] next 15 days for each quarter
+
+71. next n days for each week
+Example:
+- [total sold] next 2 days for each week
+
+72. next n days for each year
+Example:
+- [revenue] next 300 days for each year
+
+73. next n months
+Example:
+- [openings] [opening date] = 'next 6 months' [location]
+
+74. next n months for each quarter
+Example:
+- [cost] next 2 months for each quarter
+
+75. next n months for each year
+Example:
+- next 8 months for each year
+
+76. next n quarters
+Example:
+- [opportunities] next 2 quarters by [campaign]
+
+77. next n quarters for each year
+Example:
+- [sales] next 2 quarters for each year
+
+78. next n weeks
+Example:
+- [shipments] next 10 weeks by day
+
+79. next n weeks for each month
+Example:
+- [sales] next 3 weeks for each month
+
+80. next n weeks for each quarter
+Example:
+- [revenue] next 2 weeks for each quarter
+
+81. next n weeks for each year
+Example:
+- [sales] next 3 weeks for each year
+
+82. next n years
+Example:
+- [projected deals] next 5 years
+
+83. next quarter
+Example:
+- [opportunities] next quarter [amount] > 30000
+
+84. next week
+Example:
+- [shipments] next week by [store]
+
+85. next year
+Example:
+- [opportunities] next year by [sales rep]
+
+86. November
+Example:
+- [order date] = 'November'
+
+87. October
+Example:
+- [order date] = 'October'
+
+88. q1
+The first quarter of the fiscal year.
+Example:
+- [sales] q1
+
+89. q2
+The second quarter of the fiscal year.
+Example:
+- [sales] q2
+
+90. q3
+The third quarter of the fiscal year.
+
+Example:
+- [sales] q3
+
+91. q4
+The fourth quarter of the fiscal year.
+
+Example:
+- [sales] q4
+
+92. quarter to date
+Example:
+- [sales] by [product] quarter to date for top 10 [products] by [sales]
+
+93. quarterly
+Example:
+- [sales] quarterly for each [product]
+
+94. quarterly year-over-year
+Example:
+- growth of [revenue] by [date shipped]
+quarterly year-over-year
+
+95. Saturday
+Example:
+- [order date] = 'Saturday'
+
+96. September
+Example:
+- [order date] = 'September'
+
+97. Sunday
+Example:
+- [order date] = 'Sunday'
+
+98. this day
+Example:
+- [shipments] this day by [order]
+
+99. this month
+Example:
+- [appointments] this month by day
+
+100. this quarter
+Example:
+- [opportunities] this quarter [amount] > 30000
+
+101. this week
+Example:
+- [shipments] this week by [store]
+
+102. this year
+Example:
+- [opportunities] this year by [sales rep]
+
+103. Thursday
+Example:
+- [order date] = 'Thursday'
+
+104. today
+Example:
+- [sales] today by [store]
+
+105. Tuesday
+Example:
+- [order date] = 'Tuesday'
+
+106. Wednesday
+Example:
+- [order date] = 'Wednesday'
+
+107. week
+Example:
+- [revenue] by [week] last quarter
+
+108. week to date
+Example:
+- [sales] by [order date] week to date for 'pro-ski200'
+
+109. weekly
+Example:
+- [revenue] weekly
+
+110. weekly year-over-year
+Example:
+- growth of [revenue] by [date shipped]
+  weekly year-over-year
+
+111. year
+Example:
+- [revenue] by [product] '2014' [product name] contains 'snowboard'
+
+112. year to date
+Example:
+- [sales] by [product] year to date
+
+113. yearly
+Example:
+- [shipments] by [product] yearly
+
+114. yesterday
+Example:
+- [sales] yesterday for 'pro-ski200' by [store]
+
+# Time Keywords
+
+The last keyword returns the last n full periods and does not include the current period. For example, last 6 hours returns the last 6 full hours and does not include the current hour. To include the current period, add this <period>. For example, last 6 hours this hour.
+
+1. detailed
+Example:
+- [ship time] detailed
+
+2. last hour
+Example:
+- count unique [visits] last hour
+
+3. last minute
+Example:
+- count [homepage views] last minute
+
+4. n hours
+Example:
+- count [visitors] last 12 hours
+- count [visitors] next 12 hours
+
+5. n hours ago
+Example:
+- sum [inventory] by [product] by [store] 2 hours ago
+
+6. n minutes
+Example:
+- count [visitors] last 30 minutes
+- count [visitors] next 30 minutes
+
+7. n minutes ago
+Example:
+- sum [inventory] by [product] 10 minutes ago
+
+8. next hour
+Example:
+- count [projected visitors] next hour
+
+9. next minute
+Example:
+- count [projected visitors] next minute
+
+10. this hour
+Example:
+- count [visitors] this hour
+
+11. this minute
+Example:
+- count [visitors] this minute
+
+# Text Keywords
+
+1. begins with
+Examples:
+- [product name] begins with 'pro'
+The preceding phrase returns all products that start with 'pro'. 
+For example, this phrase might return "pro sport set", but it wouldn't return "beginner sport set".
+
+- [product name] begins with 'pro' or 'sport'
+- [product name] begins with 'pro' [product name] begins with 'sport'
+The preceding phrases both return all products that start with 'pro' or 'sport'. 
+For example, either of these phrases might return "pro sport set" or "sport set", but they wouldn't return "beginner sport set".
+
+- [product name] begins with 'pro' [product color] begins with 'bl'
+The preceding phrase returns all products that start with 'pro', if the product color also starts with 'bl'. 
+For example, this phrase might return a blue "pro sport set".
+begins with phrases can't be combined with "and".
+
+2. contains
+Examples:
+- [country name] contains 'a' or 'b'
+- [country name] contains 'a' [country name] contains 'b'
+The preceding phrases both return country names that contain the letter a and country names that contain the letter b. 
+For example, either of these phrases might return "North America".
+If your query includes two or more contains phrases that modify the same column, ThoughtSpot combines the phrases using OR logic. 
+
+- [country name] contains 'a' and 'b'
+The preceding phrase returns only country names that contain both the letter a and the letter b. 
+For example, this phrase might return Azerbaijan, but it wouldn't return North America.
+
+3. ends with
+Examples:
+- [product name] ends with 'deluxe'
+The preceding phrase returns product names that end with 'deluxe'. 
+For example, this phrase might return "bath towels deluxe", but it wouldn't return "deluxe bath towels".
+
+- [product name] ends with 'deluxe' or 'luxury'
+- [product name] ends with 'deluxe' [product name] ends with 'luxury'
+The preceding phrases both return product names that end with 'deluxe' or 'luxury'. 
+For example, either of these phrases might return "bath towels deluxe" or "bath towels luxury", but they wouldn't return "deluxe bath towels".
+ends with phrases can't be combined with "and".
+
+4. similar to
+Examples:
+- [product name] similar to 'jacket'
+The preceding phrase returns all products that contain text similar to 'jacket'. 
+For example, this phrase might return "jean jacket men's", but it wouldn't return "t-shirt".
+
+- [product name] similar to 'jacket' or 't-shirt'
+- [product name] similar to 'jacket' [product name] similar to 't-shirt'
+The preceding phrases both return all products that contain text similar to 'jacket' or 't-shirt'. 
+For example, either of these phrases might return "jean jacket men's" or "white t-shirt", but they wouldn't return "green hat".
+similar to phrases can't be combined with "and".
+
+5. not begins with
+Examples:
+- [product name] not begins with 'pro'
+The preceding phrase returns all products that do not start with 'pro'. 
+For example, this phrase might return "beginner sport set", but it wouldn't return "pro sport set".
+
+- [product name] not begins with 'pro' or 'sport'
+- [product name] not begins with 'pro' [product name] not begins with 'sport'
+The preceding phrases both return all products that do not start with 'pro' and do not start with 'sport'. 
+For example, either of these phrases might return "beginner sport set", but they wouldn't return "pro sport set" or "sport set".
+
+6. not contains
+Examples:
+- [country name] not contains 'a' [country name] not contains 'b'
+- [country name] not contains 'a' or 'b'
+The preceding phrases both return country names that do not contain the letter a or the letter b. 
+For example, either of these phrases might return Yemen, but they wouldn't return North America or Azerbaijan.
+
+- [country name] not contains 'a' and 'b'
+The preceding phrase returns country names that contain neither the letter a nor the letter b. 
+For example, this phrase would return North America, but not Azerbaijan.
+
+7. not ends with
+Examples:
+- [product name] not ends with 'luxury'
+The preceding phrase returns all products that do not end with 'luxury'. 
+For example, this phrase might return bath towels basic, but it wouldn't return bath towels luxury.
+
+- [product name] not ends with 'luxury' or 'deluxe'
+- [product name] not ends with 'luxury' [product name] not ends with 'deluxe'
+The preceding phrases both return all products that do not end with 'luxury' and do not end with 'deluxe'. 
+For example, either of these phrases might return bath towels basic, but they wouldn't return bath towels luxury or bath towels deluxe.
+
+8. not similar to
+Examples:
+- [product name] not similar to 'jacket'
+The preceding phrase returns all products that do not contain text that is similar to 'jacket'. 
+For example, this phrase might return t-shirt, but it wouldn't return jean jacket men's.
+
+- [product name] not similar to 'jacket' or 't-shirt'
+- [product name] not similar to 'jacket' [product name] not similar to 't-shirt'
+The preceding phrases both return all products that do not contain text similar to 'jacket' and do not contain text similar to 't-shirt'. 
+For example, either of these phrases might return green hat, but they wouldn't return jean jacket men's or t-shirt.
+
+When you use more than one begins with or ends with keyword in a search or formula on the same column, ThoughtSpot returns your results using an OR condition, instead of an AND condition.
+When you use a combination of begins with and ends with, ThoughtSpot still returns your results using the AND condition.
+When using multiple begins with on different columns, ThoughtSpot returns results using the AND condition.
+For example, if you search for [state name] begins with "V" [state name] begins with "C", your results are Virginia, Vermont, California, and Connecticut. 
+If you search for [state name] begins with V [state name] ends with T, your only result is Vermont.
+
+# Math Keywords
+
+1. average
+Example:
+- average [revenue] by [store]
+
+2. count
+Example:
+- count [visitors] by [site]
+
+3. max
+Example:
+- max [sales] by [visitor] by [site]
+
+4. min
+Example:
+- min [revenue] by [store] by [campaign] for [cost] > 5000
+
+5. standard deviation
+Example:
+- standard deviation [revenue] by [product] by [month] for [date] after '10/31/2010'
+
+6. sum
+Example:
+- sum [revenue]
+
+7. unique count
+Example:
+- unique count [visitor] by [product page] last week
+
+8. variance
+Example:
+- variance [sale amount] by [visitor] by [product] for last year
+
+# Comparative Keywords
+
+1. all
+Example:
+- [revenue] [asia] vs all
+The all keyword can only be used as part of a versus phrase.
+
+2. between... and...
+Example:
+- [revenue] between 0 and 1000
+
+3. = (equal)
+Example:
+- unique count [visitor] by [store] [purchased products] = 3 for last 5 days
+
+4. everything
+Example:
+- [revenue] [asia] vs everything
+The everything keyword can only be used as part of a versus phrase.
+
+5. > (greater than)
+Example:
+- sum [sale amount] by [visitor] by [product] for last year [sale amount] > 2000
+
+6. >= (greater than or equal)
+Example:
+- count [calls] by [employee] [lastname] >= 'm'
+
+7. < (less than)
+Example:
+- unique count [visitor] by [product] by [store] for [sale amount] < 20
+
+8. <= (less than or equal)
+Example:
+- count [shipments] by [city] [latitude] <= 0
+
+9. != (not equal)
+Example:
+- sum [sale amount] [region] != 'canada' [date] != 'last 5 days'
+
+10. vs, versus
+Example:
+- [revenue] [east] vs [west]
+ThoughtSpot supports use of multiple contains, begins_with, and ends_with phrases in vs queries. For example, you can now have a versus query such as [state name begins_with 'a'] [state name begins_with 'c'] [vs] [state name begins_with 'd']. For multiple contains, begins_with`, ends_with phrases on the same side of the versus query, ThoughtSpot will combine the phrases using OR.
+ThoughtSpot does not support the use of group_* formula measures with the vs keyword. ThoughtSpot doesn't support the use of the vs keyword within an in or not in subquery.
+You can use special constants for null and empty values with the = and != keywords: {null} and {empty}. For example: [customer name] = {empty} or [department] != {null}. NULL values are missing or invalid (for example, dividing by 0) values. ThoughtSpot also shows NULL if you have n/a in your data. Empty values are empty strings of text or strings containing only whitespace (spaces, tabs).
+
+# Location Keywords
+
+1. near ... within n miles|km|meters
+Example:
+- [revenue] [store name] [county] near 'alameda' within 50 miles
+
+2. farther than n miles|km|meters from ...
+Example:
+- average [hours worked] [branch] farther than 80 km from 'scarborough'
+
+3. near
+Example:
+- [revenue] [store name] [county] near 'san francisco'
+
+4. near ... within n miles|km|meters
+Example:
+- [revenue] [store name] [county] near 'alameda' within 50 miles
+
+# Time Period Keywords
+
+1. day
+Example:
+- [orders] by [day]
+
+2. day of month
+Example:
+- [sales] day of month by [month]
+
+3. day of quarter
+Example:
+- [deals] day of quarter by [year]
+
+4. day of week
+Example:
+- [customers] by week day of week
+
+5. day of year
+Example:
+- [ad clicks] day of year by year
+
+6. hour
+Example:
+- [visitors] by hour weekly
+
+7. hour of day
+Example:
+- [visitors] by [page name] hour of day
+
+8. month of quarter
+Example:
+- [purchases] month of quarter by year
+
+9. quarter
+Example:
+- [purchases] by quarter
+
+10. quarter of year
+Example:
+- [opportunities] quarter of year last 4 years yearly
+
+11. week of month
+Example:
+- [product shipments] week of month yearly
+
+ThoughtSpot uses ISO week format for the week of [month | quarter | year] keywords, which means that the last few days of a quarter may sometimes show as the first few days of the next quarter, based on the ISO week date system.
+
+12. week of quarter
+Example:
+- [revenue] week of quarter
+ThoughtSpot uses ISO week format for the week of [month | quarter | year] keywords, which means that the last few days of a quarter may sometimes show as the first few days of the next quarter, based on the ISO week date system.
+
+13. week of year
+Example:
+- [new products] week of year last 3 years yearly
+ThoughtSpot uses ISO week format for the week of [month | quarter | year] keywords, which means that the last few days of a quarter may sometimes show as the first few days of the next quarter, based on the ISO week date system.
+
+# In / Not in Keywords
+
+Query in query search (intersection of two sets). Must match last attribute before keyword with first attribute inside subsearch. Doesn't support use of the vs keyword.
+
+1. <attribute> in (<attribute subsearch>)
+Examples:
+- [store name] in (top 10 [store name] by [sales] [footwear])
+- [product name] 2014 [product name] in ([product name] 2013) [sales]
+
+2. <attribute> not in (<attribute subsearch>)
+Relative complement of two sets. Must match last attribute before keyword with first attribute inside subsearch. Doesn't support use of the vs keyword.
+Examples:
+- [product name] 2014 [product name] not in ([product name] 2013) [sales]
+The above will find sales for all products ordered in 2014 that were not ordered in 2013.

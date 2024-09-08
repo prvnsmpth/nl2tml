@@ -1,0 +1,122 @@
+num installment,varchar,attribute
+id,varchar,attribute
+issue date,date,attribute
+finance inquiries,varchar,attribute
+secondary app mortgage account,varchar,attribute
+url,varchar,attribute
+num bankcard,varchar,attribute
+public record bankruptcies,int64,measure
+joint verification status,varchar,attribute
+months since recent inq,varchar,attribute
+revolving utilization,varchar,attribute
+funded amount investor,float,measure
+months since oldest installment account,varchar,attribute
+secondary app collections 12 months ex med,varchar,attribute
+total installment high credit limit,varchar,attribute
+revol balance joint,varchar,attribute
+months since last delinquency,int64,measure
+interest rate,float,attribute
+sub grade,varchar,attribute
+verification status,varchar,attribute
+total hi cred lim,varchar,attribute
+initial list status,varchar,attribute
+months since recent installment account,varchar,attribute
+secondary app revolving util,varchar,attribute
+joint debt to income ratio,varchar,attribute
+secondary app inq last 6 monthsths,varchar,attribute
+home ownership,varchar,attribute
+tax liens,int64,measure
+number of public records,int64,measure
+term,varchar,attribute
+funded amount,int64,measure
+pctnvr dlq,varchar,attribute
+annual joint income,varchar,attribute
+total current ballance,varchar,attribute
+num90g dpd 24 months,varchar,attribute
+employment length,varchar,attribute
+principal received,float,measure
+grade,varchar,attribute
+months since last record,int64,attribute
+num revolving balance gt 0,varchar,attribute
+last 12 month inquiries,varchar,attribute
+secondary app num revolving accounts,varchar,attribute
+mortgage account,varchar,attribute
+total payment,float,measure
+last credit pull date,date,attribute
+interest received,float,measure
+member id,varchar,attribute
+max balance revolving account,varchar,attribute
+collection recovery fee,float,measure
+num120dpd 2m,varchar,attribute
+num bankcard sats,varchar,attribute
+secondary app open installment 6 months,varchar,attribute
+open account,int64,measure
+month since recent account,varchar,attribute
+total number of credit accounts,int64,measure
+months since last major derog,varchar,attribute
+secondary app chargeoff within 12 months,varchar,attribute
+revolving trades 12 monhts,varchar,attribute
+total collection amount,varchar,attribute
+revolving high limit,varchar,attribute
+months since recent revolving account opened,varchar,attribute
+recoveries,float,measure
+late fees,float,measure
+months since recent revol delinquent,varchar,attribute
+revolving trades 24 months,varchar,attribute
+num sats,varchar,attribute
+description,varchar,attribute
+title,varchar,attribute
+active installment trades 6 months,varchar,attribute
+delinquent accounts,int64,measure
+address state,varchar,attribute
+open trades 12 monhts,varchar,attribute
+investor outstanding principal,float,measure
+application type,varchar,attribute
+last payment amount,float,measure
+emp title,varchar,attribute
+annual income,float,measure
+chargeoff within 12 months,int64,measure
+secondary app months since last major derog,varchar,attribute
+open account last 12 months,varchar,attribute
+bankccard open to buy,varchar,attribute
+all utilization,varchar,attribute
+open trades last 6 months,varchar,attribute
+number of finance trades,varchar,attribute
+numop past 12 months,varchar,attribute
+delinqquency in 2yrs,int64,measure
+collections 12 months excluding medical conditions,int64,measure
+policy code,int64,attribute
+bank card utilization,varchar,attribute
+months since recent bankcard,varchar,attribute
+num accounts ever 120 pd,varchar,attribute
+open trades 24 monhts,varchar,attribute
+active bankcards,varchar,attribute
+total balance ex mortgage,varchar,attribute
+num30dpd,varchar,attribute
+loan status,varchar,attribute
+total bankcard limit,varchar,attribute
+months since recent bankcard dlinquency,varchar,attribute
+secondary app open acccount,varchar,attribute
+months since oldest revolving account opened,varchar,attribute
+loan amount,int64,measure
+credit inquiries last 6 months,int64,measure
+payment plan,bool,attribute
+remaining outstanding principal,float,measure
+balance installment accounts,varchar,attribute
+installment,float,measure
+delinquent amount,int64,measure
+earliest credit line,varchar,attribute
+installment utilization,varchar,attribute
+total payment investor,float,measure
+revolving balance,int64,measure
+secondary app earliest credit line,varchar,attribute
+num active revolving,varchar,attribute
+debt to income ratio,float,attribute
+percent bankcard gt 75,varchar,attribute
+average current balance,varchar,attribute
+num op revolving,varchar,attribute
+last payment date,date,attribute
+num revolving accounts,varchar,attribute
+next payment date,date,attribute
+purpose,varchar,attribute
+zip code,varchar,attribute
