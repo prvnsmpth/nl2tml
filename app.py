@@ -54,10 +54,19 @@ with open('keyword_reference.txt', 'r') as f:
 with open('schema.csv', 'r') as f:
     schema = f.read()
 
+conversations = {}
+
 @app.route('/chat', methods=['POST'])
 def chat():
     # Get the question from the request body
-    question = request.json.get('question', '')
+    body = request.json
+    query = body.get('query')
+    thread_id = body.get('thread_id')
+
+    if thread_id not in conversations:
+        conversations[thread_id] = []
+
+    conversations[thread_id].append({ "role": "user", "content": query })
 
     # Make the API call to get a completion
     start_time = time.time()
@@ -85,12 +94,7 @@ def chat():
                 "text": "Baseed on the above information, generate a syntactically correct TQL query for the given question. Only output a string that is the TQL query.",
             }
         ],
-        messages=[
-            {
-                "role": "user",
-                "content": question
-            }
-        ]
+        messages=conversations[thread_id]
     )
     end_time = time.time()
 
@@ -99,8 +103,9 @@ def chat():
     app.logger.info('Time taken: %s seconds', end_time - start_time)
 
     # Return the response as JSON
-    response_txt = '\n'.join([c.text for c in completion.content])
-    return jsonify({"response": response_txt})
+    response_txt = '\n'.join([c.text for c in completion.content if c.type == "text"])
+    conversations[thread_id].append({ "role": "assistant", "content": completion.content })
+    return jsonify({"response": response_txt, "thread_id": thread_id})
 
 @app.route('/')
 def index():
