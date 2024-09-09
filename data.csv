@@ -1,0 +1,30 @@
+total delinquent amount and delinquent accounts for loans with credit pull in last 6 months, sum [delinquent amount] sum [delinquent accounts] by [loan status] [last credit pull date] = 'last 6 months'
+for A, B grade loans where borrower's average monthly income is greater than $5000, what are the top loan purposes, top [purpose] [id] in ([id] [grade] = 'A' [grade] = 'B' average [income] > 5000)
+number of loans with tax liens by state, count [id] by [address state] [tax liens] > 0
+loans with number of revolving accounts greater than 10 and number of bankcard satisfactions less than 5, [id] [num revolving accounts] > 10 [num bankcard sats] < 5
+average debt to income ratio and total payment for borrowers with employment length over 3 years, average [debt to income ratio] average [total payment] [employment length] >= 3
+growth of total delinquent amount by state over last 6 months, growth of sum [delinquent amount] by [address state] last 6 months
+for loans with funded amount over $20k, what are the top 5 purposes by average credit inquiries in last 6 months, top 5 [purpose] average [credit inquiries last 6 months] [funded amount] > 20000
+number of loans where borrower has had more than 2 credit accounts ever 120 days past due, count [id] [num accounts ever 120 pd] > 2
+average funded amount and interest rate for loans with policy code 1 and home ownership is own, average [funded amount] average [interest rate] [policy code] = 1 [home ownership] = 'own'
+loans with more than 5 open accounts in last 12 months and total revolving balance greater than $20k, [id] [open account last 12 months] > 5 [revolving balance] > 20000
+"total delinq amount and delinq accounts for loans with credit pull in last 6 months","sum [delinquent amount] sum [delinquent accounts] by [loan status] [last credit pull date] = 'last 6 months'"
+"for A, B grade loans where borrower's average monthly income is greater than $5000, what are the top loan purposes","top [purpose] [id] in ([id] [grade] = 'A' [grade] = 'B' average [income] > 5000)"
+"for A, B grade loans where borrower's average monthly income is less than $2000, what are the bottom loan purposes","bottom [purpose] [id] in ([id] [grade] = 'A' [grade] = 'B' average [income] < 2000)"
+"for loans with credit pull in the last 3 months, what are the top 5 home ownership types","top 5 [home ownership] [id] in ([id] [last credit pull date] = 'last 3 months')"
+"for loans with credit pull more than 1 year ago, what is the average number of credit accounts","average [total number of credit accounts] [id] in ([id] [last credit pull date] < 'last 1 year')"
+"for loans with credit pull in the last 6 months, what is the minimum and maximum number of public records","min [number of public records] max [number of public records] [id] in ([id] [last credit pull date] = 'last 6 months')"
+"for loans with credit pull in the last 6 months, what is the standard deviation of interest rates","standard deviation [interest rate] [id] in ([id] [last credit pull date] = 'last 6 months')"
+"for loans with credit pull in the last 6 months, what are the top 5 employment lengths","top 5 [employment length] [id] in ([id] [last credit pull date] = 'last 6 months')"
+"for loans with credit pull in the last 6 months, what is the sum of funded amount investor","sum [funded amount investor] [id] in ([id] [last credit pull date] = 'last 6 months')"
+"for loans with credit pull in the last 6 months, what is the unique count of member ids","unique count [member id] [id] in ([id] [last credit pull date] = 'last 6 months')"
+[total delinq amount, sum [delinquent amount] sum [delinquent accounts] by [loan status] [last credit pull date] = 'last 6 months']
+[for A, B grade loans where borrower's average monthly income is greater than $5000, what are the top loan purposes, top [purpose] [id] in ([id] [grade] = 'A' [grade] = 'B' average [income] > 5000)]
+[total public record bankruptcies for loans with less than 6 months since last delinquency, sum [public record bankruptcies] by [months since last delinquency] < 6]
+[revolving trades 24 months for loans with more than 10 finance inquiries, top [revolving trades 24 months] by [finance inquiries] > 10]
+[for loans with term = '36 months', what is the average interest rate, average [interest rate] [term] = '36 months']
+[for loans with joint verification status = 'Verified', what is the average months since oldest installment account, average [months since oldest installment account] [joint verification status] = 'Verified']
+[total number of credit accounts for loans with less than 3 open accounts, sum [total number of credit accounts] [open account] < 3]
+[months since recent revolving account opened for loans with more than 2 active revolving trades in last 12 months, average [months since recent revolving account opened] [revolving trades 12 monhts] > 2]
+[total collections amount for loans with less than 6 months since last major derog, sum [total collection amount] [months since last major derog] < 6]
+[delinquent accounts for loans with credit pull in last 6 months, sum [delinquent accounts] [last credit pull date] = 'last 6 months']

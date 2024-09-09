@@ -36,10 +36,11 @@
                 let messageElements = []
                 for (let message of messages) {
                     const messageElement = document.createElement('div');
+                    messageElement.classList.add('p-2', 'rounded-md', 'max-w-md');
                     if (message.role === 'user') {
-                        messageElement.classList.add('bg-blue-500', 'text-white', 'p-2', 'rounded-md', 'self-end');
+                        messageElement.classList.add('bg-blue-500', 'text-white', 'self-end');
                     } else {
-                        messageElement.classList.add('bg-gray-200', 'p-2', 'rounded-md', 'self-start');
+                        messageElement.classList.add('bg-gray-200', 'self-start');
                     }
                     messageElement.textContent = message.content;
                     messageElements.push(messageElement);

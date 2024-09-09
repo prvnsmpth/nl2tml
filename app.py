@@ -5,6 +5,8 @@ from logging.config import dictConfig
 import textwrap
 import time
 
+from data_gen import DataGenerator
+
 dictConfig({
     'version': 1,
     'formatters': {'default': {
@@ -53,6 +55,8 @@ with open('keyword_reference.txt', 'r') as f:
 
 with open('schema.csv', 'r') as f:
     schema = f.read()
+
+data_generator = DataGenerator(client, schema, keyword_reference, logger=app.logger)
 
 conversations = {}
 
@@ -106,6 +110,11 @@ def chat():
     response_txt = '\n'.join([c.text for c in completion.content if c.type == "text"])
     conversations[thread_id].append({ "role": "assistant", "content": completion.content })
     return jsonify({"response": response_txt, "thread_id": thread_id})
+
+@app.route('/data_gen', methods=['POST'])
+def data_gen():
+    data_generator.generate_examples()
+    return jsonify({"message": "Data generation completed"})
 
 @app.route('/')
 def index():

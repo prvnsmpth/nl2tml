@@ -29,7 +29,7 @@ Examples:
 Generates the bottom n items from a sorted result.
 Examples:
 - bottom 25 [customer] by [revenue] for each [sales rep]
-- bottom [revenue] average
+- bottom average [revenue] 
 - bottom [revenue] by [state]
 - [customer] by [revenue] for each [sales rep] bottom
 
@@ -171,87 +171,87 @@ Example:
 
 28. last month
 Example:
-- [customers] last month by [store]
+- [customers] [order date] = 'last month' by [store]
 
 29. last month by
 Example:
-- [customers] last month by [day]
+- [customers] [order date] = 'last month' by [day]
 
 30. last n days
 Example:
-- [visitors] last 7 days
+- [visitors] [visit date] = 'last 7 days'
 
 31. last n days for each month
 Example:
-- [sales] last 2 days for each month
+- [sales] [order date] = 'last 2 days' for each month
 
 32. last n days for each quarter
 Example:
-- [revenue] last 15 days for each quarter
+- [revenue] [order date] = 'last 15 days' for each quarter
 
 33. last n days for each week
 Example:
-- [total sold] last 2 days for each week
+- [total sold] [order date] = 'last 2 days' for each week
 
 34. last n days for each year
 Example:
-- [revenue] last 300 days for each year
+- [revenue] [order date] = 'last 300 days' for each year
 
 35. last n hours for each day
 Example:
-- [sales] last 2 hours for each day
+- [sales] [order time] = 'last 2 hours' for each day
 
 36. last n months
 Example:
-- [visitors] last 10 months by day
+- [visitors] [visit date] = 'last 10 months' by day
 
 37. last n months for each quarter
 Example:
-- [cost] last 2 months for each quarter
+- [cost] [order date] = 'last 2 months' for each quarter
 
 38. last n months for each year
 Example:
-- last 8 months for each year
+- [sales] [order date] = 'last 8 months' for each year
 
 39. last n quarters
 Example:
-- [visitors] last 2 quarters by month by [campaign]
+- [visitors] [visit date] = 'last 2 quarters' by month by [campaign]
 
 40. last n quarters for each year
 Example:
-- last 2 quarters for each year
+- [sales] [order date] = 'last 2 quarters' for each year
 
 41. last n weeks
 Example:
-- [visitors] last 10 weeks by day
+- [visitors] [visit date] = 'last 10 weeks' by day
 
 42. last n weeks for each month
 Example:
-- [sales] last 3 weeks for each month
+- [sales] [order date] = 'last 3 weeks' for each month
 
 43. last n weeks for each quarter
 Example:
-- last 2 weeks for each quarter
+- [revenue] [order date] = 'last 2 weeks' for each quarter
 
 44. last n weeks for each year
 Example:
-- last 3 weeks for each year
+- [sales] [order date] = 'last 3 weeks' for each year
 
 45. last n years
 Example:
-- [visitors] last 5 years by [revenue] for sum [revenue] > 5000
+- [visitors] [visit date] = 'last 5 years' by [revenue] for sum [revenue] > 5000
 
 46. last quarter
 Example:
-- [customers] last quarter [sale] > 300
+- [customers] [order date] = 'last quarter' [sale] > 300
 
 47. last week
 Example:
-- [customers] last week by [store]
+- [customers] [order date] = 'last week' by [store]
 
 48. last year
 Example:
-- top 10 [customers] last year by [sale] by [store] for [region] = 'west'
+- top 10 [customers] [order date] = 'last year' by [sale] by [store] for [region] = 'west'
 
 49. March
 Example:
@@ -272,7 +272,7 @@ Examples:
 
 53. month to date
 Example:
-- [sales] by [product] month to date [sales] > 2400
+- [sales] by [product] [order date] = 'month to date' [sales] > 2400
 
 54. month year
 Example:
@@ -328,79 +328,79 @@ Example:
 
 67. next month
 Example:
-- [appointments] next month by day
+- [appointments] [appointment date] = 'next month' by day
 
 68. next n days
 Example:
-- [shipments] next 7 days
+- [shipments] [ship date] <= 'next 7 days'
 
 69. next n days for each month
 Example:
-- [sales] next 2 days for each month
+- [sales] [order date] <= 'next 2 days' for each month
 
 70. next n days for each quarter
 Example:
-- [revenue] next 15 days for each quarter
+- [revenue] [order date] <= 'next 15 days' for each quarter
 
 71. next n days for each week
 Example:
-- [total sold] next 2 days for each week
+- [total sold] [order date] <= 'next 2 days' for each week
 
 72. next n days for each year
 Example:
-- [revenue] next 300 days for each year
+- [revenue] [order date] <= 'next 300 days' for each year
 
 73. next n months
 Example:
-- [openings] [opening date] = 'next 6 months' [location]
+- [openings] [opening date] <= 'next 6 months' [location]
 
 74. next n months for each quarter
 Example:
-- [cost] next 2 months for each quarter
+- [cost] [order date] <= 'next 2 months' for each quarter
 
 75. next n months for each year
 Example:
-- next 8 months for each year
+- [sales] [order date] <= 'next 8 months' for each year
 
 76. next n quarters
 Example:
-- [opportunities] next 2 quarters by [campaign]
+- [opportunities] [close date] <= 'next 2 quarters' by [campaign]
 
 77. next n quarters for each year
 Example:
-- [sales] next 2 quarters for each year
+- [sales] [order date] <= 'next 2 quarters' for each year
 
 78. next n weeks
 Example:
-- [shipments] next 10 weeks by day
+- [shipments] [ship date] <= 'next 10 weeks' by day
 
 79. next n weeks for each month
 Example:
-- [sales] next 3 weeks for each month
+- [sales] [order date] <= 'next 3 weeks' for each month
 
 80. next n weeks for each quarter
 Example:
-- [revenue] next 2 weeks for each quarter
+- [revenue] [order date] <= 'next 2 weeks' for each quarter
 
 81. next n weeks for each year
 Example:
-- [sales] next 3 weeks for each year
+- [sales] [order date] <= 'next 3 weeks' for each year
 
 82. next n years
 Example:
-- [projected deals] next 5 years
+- [projected deals] [close date] <= 'next 5 years'
 
 83. next quarter
 Example:
-- [opportunities] next quarter [amount] > 30000
+- [opportunities] [close date] = 'next quarter' [amount] > 30000
 
 84. next week
 Example:
-- [shipments] next week by [store]
+- [shipments] [ship date] = 'next week' by [store]
 
 85. next year
 Example:
-- [opportunities] next year by [sales rep]
+- [opportunities] [close date] = 'next year' by [sales rep]
 
 86. November
 Example:
@@ -434,7 +434,7 @@ Example:
 
 92. quarter to date
 Example:
-- [sales] by [product] quarter to date for top 10 [products] by [sales]
+- [sales] by [product] [order date] >= 'quarter to date' for top 10 [products] by [sales]
 
 93. quarterly
 Example:
@@ -459,23 +459,23 @@ Example:
 
 98. this day
 Example:
-- [shipments] this day by [order]
+- [shipments] [ship date] = 'this day' by [order]
 
 99. this month
 Example:
-- [appointments] this month by day
+- [appointments] [appointment date] = 'this month' by day
 
 100. this quarter
 Example:
-- [opportunities] this quarter [amount] > 30000
+- [opportunities] [close date] = 'this quarter' [amount] > 30000
 
 101. this week
 Example:
-- [shipments] this week by [store]
+- [shipments] [ship date] = 'this week' by [store]
 
 102. this year
 Example:
-- [opportunities] this year by [sales rep]
+- [opportunities] [close date] = 'this year' by [sales rep]
 
 103. Thursday
 Example:
@@ -499,7 +499,7 @@ Example:
 
 108. week to date
 Example:
-- [sales] by [order date] week to date for 'pro-ski200'
+- [sales] by [order date] >= 'week to date' for 'pro-ski200'
 
 109. weekly
 Example:

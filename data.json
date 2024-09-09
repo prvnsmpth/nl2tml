@@ -1,0 +1,45 @@
+[{"nl_query": "total delinquent amount", "tql_query": "sum [delinquent amount]"},
+{"nl_query": "also show the total number of such accounts? Also group by loan status.", "tql_query": "sum [delinquent amount] sum [delinquent accounts] by [loan status]"},
+{"nl_query": "limit this to loans with credit pull in last 6 months.", "tql_query": "sum [delinquent amount] sum [delinquent accounts] by [loan status] [last credit pull date] = 'last 6 months'"}]
+[
+{
+"nl_query": "total delinquent amount",
+"tql_query": "sum [delinquent amount]"
+},
+{
+"nl_query": "also show the total number of such accounts? Also group by loan status.",
+"tql_query": "sum [delinquent amount] sum [delinquent accounts] by [loan status]"
+},
+{
+"nl_query": "limit this to loans with credit pull in last 6 months.",
+"tql_query": "sum [delinquent amount] sum [delinquent accounts] by [loan status] [last credit pull date] = 'last 6 months'"
+},
+{
+"nl_query": "how many loans with grade A or B?",
+"tql_query": "count [id] [grade] = 'A' [grade] = 'B'"
+},
+{
+"nl_query": "filter down to only those where borrower's income is greater than $5000 monthly",
+"tql_query": "count [id] [grade] = 'A' [grade] = 'B' average [annual income] > 5000"
+},
+{
+"nl_query": "for these loans, what are the top 5 loan purposes?",
+"tql_query": "top 5 [purpose] [id] in ([id] [grade] = 'A' [grade] = 'B' average [annual income] > 5000)"
+},
+{
+"nl_query": "show the total number of active revolving accounts",
+"tql_query": "sum [num active revolving]"  
+},
+{
+"nl_query": "for each borrower, what is the maximum balance on their revolving accounts?",
+"tql_query": "max [max balance revolving account] by [member id]"
+},
+{
+"nl_query": "what is the average credit utilization across all borrowers?",
+"tql_query": "average [revolving utilization]"
+},
+{
+"nl_query": "what are the top 10 loan purposes by total loan amount?",
+"tql_query": "top 10 [purpose] sum [loan amount]"
+}
+]
